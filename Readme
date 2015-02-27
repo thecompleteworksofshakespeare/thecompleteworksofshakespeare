@@ -11,7 +11,7 @@ To upload to s3:
 > grunt s3:prod
 
 One liner deploy:
-> rm -rf output; python code/parser.py; python code/website.py; grunt s3:prod; grunt cloudfront:prod
+> rm -rf output; python code/parser.py; python code/website.py; grunt aws_s3:prod; grunt cloudfront:prod
 
 Upload cert:
 > cd private/ssl
