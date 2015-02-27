@@ -1,0 +1,24 @@
+To clean:
+> rm -rf output
+
+To build the books:
+> python code/parser.py
+
+To build the index:
+> python code/website.py
+
+To upload to s3:
+> grunt s3:prod
+
+Upload cert:
+> cd private/ssl
+> aws iam upload-server-certificate --server-certificate-name www.thecompleteworksofshakespeare.com --certificate-body file://cert.pem --private-key file://ssl.key --certificate-chain file://chain.pem --path "/cloudfront/"
+
+## TODO
+- Create a shakespeare dictionary
+- https the site
+- use cloudfront
+- make a github repo
+- dramatis personae
+- sonnets and poems
+
