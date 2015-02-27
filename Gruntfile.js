@@ -20,9 +20,28 @@ module.exports = function(grunt) {
         ]
       }
     },
+    cloudfront: {
+      options: {
+        region:'us-east-1',
+        credentials: grunt.file.readJSON('private/aws.json'),
+        listInvalidations:true,
+        listDistributions:false
+      },
+      prod: {
+        options: {
+          distributionId: 'E132PEJ7XU4BNA'
+        },
+        CallerReference: Date.now().toString(),
+        Paths: {
+          Quantity: 1,
+          Items: [ '/index.html' ]
+        }
+      }
+    },
   });
 
   // Load plugins
   grunt.loadNpmTasks('grunt-aws-s3');
+  grunt.loadNpmTasks('grunt-cloudfront');
 
 };

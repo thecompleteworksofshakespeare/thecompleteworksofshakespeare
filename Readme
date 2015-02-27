@@ -10,6 +10,9 @@ To build the index:
 To upload to s3:
 > grunt s3:prod
 
+One liner deploy:
+> rm -rf output; python code/parser.py; python code/website.py; grunt s3:prod; grunt cloudfront:prod
+
 Upload cert:
 > cd private/ssl
 > aws iam upload-server-certificate --server-certificate-name www.thecompleteworksofshakespeare.com --certificate-body file://cert.pem --private-key file://ssl.key --certificate-chain file://chain.pem --path "/cloudfront/"
